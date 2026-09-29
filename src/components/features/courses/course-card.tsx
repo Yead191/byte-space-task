@@ -25,7 +25,7 @@ export function CourseCard({ course, priority = false }: CourseCardProps) {
   return (
     <Link
       href={`/courses/${course.slug || course.id}`}
-      className="bg-white rounded-4xl p-4 sm:p-4.5 border border-[#E5E7EB] hover:shadow-xl hover:border-slate-300 transition-all duration-300 group flex flex-col justify-between  cursor-pointer"
+      className="bg-white rounded-4xl p-4 sm:p-4.5 border border-[#E5E7EB] hover:shadow-xl hover:border-slate-300 transition-all duration-300 group flex flex-col justify-between cursor-pointer"
     >
       {/* Thumbnail with floating frosted meta pills */}
       <div className="relative aspect-16/10 w-full rounded-[22px] overflow-hidden bg-slate-100">
