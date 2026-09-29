@@ -1,34 +1,45 @@
-import React from "react";
+"use client";
 
-const logos = [
-  { name: "Logoipsum 1", icon: "❖ Logoipsum" },
-  { name: "Logoipsum 2", icon: "✦ Logoipsum" },
-  { name: "Logoipsum 3", icon: "⬡ Logoipsum" },
-  { name: "Logoipsum 4", icon: "◈ Logoipsum" },
-  { name: "Logoipsum 5", icon: "❂ Logoipsum" },
+import Image from "next/image";
+import Marquee from "react-fast-marquee";
+
+const LOGOS = [
+  { id: "logo-1", src: "/assets/home/logos/logo1.png", alt: "Company Partner 1", width: 167, height: 41 },
+  { id: "logo-2", src: "/assets/home/logos/logo2.png", alt: "Company Partner 2", width: 168, height: 41 },
+  { id: "logo-3", src: "/assets/home/logos/logo3.png", alt: "Company Partner 3", width: 170, height: 41 },
+  { id: "logo-4", src: "/assets/home/logos/logo4.png", alt: "Company Partner 4", width: 170, height: 41 },
 ];
 
 export function TrustedLogos() {
   return (
-    <div className="w-full bg-white border-b border-slate-100 py-6 sm:py-8 shadow-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs uppercase tracking-widest font-semibold text-slate-400 mb-6">
-          Trusted by top institutions & over 100,000+ ambitious learners
-        </p>
-
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14 lg:gap-20 opacity-70 hover:opacity-100 transition-opacity">
-          {logos.map((logo, index) => (
+    <section 
+      aria-label="Trusted Partners" 
+      className="w-full bg-[#F8F9FA] border-y border-slate-100/80 py-8 sm:py-10 overflow-hidden select-none"
+    >
+      <div className="relative w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+        <Marquee
+          speed={40}
+          pauseOnHover={true}
+          autoFill={true}
+          className="flex items-center overflow-hidden"
+        >
+          {LOGOS.map((logo) => (
             <div
-              key={index}
-              style={{ animationDelay: `${index * 100}ms` }}
-              className="animate-fade-in-up flex items-center gap-2 text-slate-500 font-bold text-lg sm:text-xl tracking-tight grayscale hover:grayscale-0 hover:text-secondary transition-all cursor-pointer hover:scale-105 duration-200"
+              key={logo.id}
+              className="mx-8 sm:mx-12 md:mx-16 flex items-center justify-center shrink-0 cursor-pointer transition-transform duration-300 hover:scale-105"
             >
-              <span>{logo.icon}</span>
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                className="h-7 sm:h-8 md:h-9 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                priority
+              />
             </div>
           ))}
-        </div>
+        </Marquee>
       </div>
-    </div>
+    </section>
   );
 }
-

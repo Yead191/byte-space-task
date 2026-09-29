@@ -47,7 +47,7 @@ export function Navbar() {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-7 lg:gap-9">
-            {mainNavItems.map((item) => {
+            {mainNavItems?.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
@@ -112,7 +112,7 @@ export function Navbar() {
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out border-white/10 bg-brand-blue shadow-xl ${
           mobileMenuOpen
-            ? "max-h-[360px] opacity-100 border-t mt-3 pt-4 pb-6 px-4"
+            ? "max-h-90 opacity-100 border-t mt-3 pt-4 pb-6 px-4"
             : "max-h-0 opacity-0 border-t-0 mt-0 pt-0 pb-0 px-4 pointer-events-none"
         }`}
       >
