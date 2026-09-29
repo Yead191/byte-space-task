@@ -1,14 +1,42 @@
+export type CourseLevel = "Beginner" | "Intermediate" | "Advanced";
+
 export interface Course {
   id: string;
   title: string;
+  slug?: string;
   category: string;
+  instructor: string;
+  instructorAvatar?: string;
   rating: number;
-  reviewCount: number;
-  instructorName: string;
-  instructorAvatar: string;
+  reviewCount?: number;
+  level: CourseLevel;
+  lessonsCount: number;
+  duration: string;
+  commentsCount: number;
   price: number;
   originalPrice?: number;
-  thumbnail: string;
+  period?: string;
+  image: string;
+  studentAvatars?: string[];
+  enrolledCount?: string;
+  featured?: boolean;
+}
+
+export interface CourseFilterParams {
+  query?: string;
+  category?: string;
+  level?: string;
+  sort?: string;
+  page?: number;
+  pageSize?: number;
+}
+
+export interface PaginatedCoursesResult {
+  courses: Course[];
+  total: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
 }
 
 export interface Testimonial {

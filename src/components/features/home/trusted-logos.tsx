@@ -4,19 +4,43 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
 const LOGOS = [
-  { id: "logo-1", src: "/assets/home/logos/logo1.png", alt: "Company Partner 1", width: 167, height: 41 },
-  { id: "logo-2", src: "/assets/home/logos/logo2.png", alt: "Company Partner 2", width: 168, height: 41 },
-  { id: "logo-3", src: "/assets/home/logos/logo3.png", alt: "Company Partner 3", width: 170, height: 41 },
-  { id: "logo-4", src: "/assets/home/logos/logo4.png", alt: "Company Partner 4", width: 170, height: 41 },
+  {
+    id: "logo-1",
+    src: "/assets/home/logos/logo1.png",
+    alt: "Company Partner 1",
+    width: 167,
+    height: 41,
+  },
+  {
+    id: "logo-2",
+    src: "/assets/home/logos/logo2.png",
+    alt: "Company Partner 2",
+    width: 168,
+    height: 41,
+  },
+  {
+    id: "logo-3",
+    src: "/assets/home/logos/logo3.png",
+    alt: "Company Partner 3",
+    width: 170,
+    height: 41,
+  },
+  {
+    id: "logo-4",
+    src: "/assets/home/logos/logo4.png",
+    alt: "Company Partner 4",
+    width: 170,
+    height: 41,
+  },
 ];
 
 export function TrustedLogos() {
   return (
-    <section 
-      aria-label="Trusted Partners" 
+    <section
+      aria-label="Trusted Partners"
       className="w-full bg-[#F8F9FA] border-y border-slate-100/80 py-8 sm:py-10 overflow-hidden select-none"
     >
-      <div className="relative w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      <div className="relative w-full mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <Marquee
           speed={40}
           pauseOnHover={true}

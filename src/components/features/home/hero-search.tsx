@@ -8,15 +8,20 @@ export function HeroSearch() {
   const router = useRouter();
   const [query, setQuery] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (query.trim()) {
-      router.push(`/courses?query=${encodeURIComponent(query.trim())}`);
+    const trimmed = query.trim();
+    if (trimmed) {
+      router.push(`/courses?query=${encodeURIComponent(trimmed)}`);
+    } else {
+      router.push("/courses");
     }
   };
 
   return (
     <form
+      action="/courses"
+      method="GET"
       onSubmit={handleSubmit}
       className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-xl mx-auto mb-8 sm:mb-10 xl:mb-5 2xl:mb-8 animate-fade-in-up delay-150"
     >
@@ -24,6 +29,7 @@ export function HeroSearch() {
         <Search className="w-4 h-4 text-slate-400 mr-3 shrink-0" />
         <input
           type="text"
+          name="query"
           placeholder="Course, topic, creator"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

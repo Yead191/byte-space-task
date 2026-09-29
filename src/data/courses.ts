@@ -1,0 +1,422 @@
+import { Course, CourseFilterParams, PaginatedCoursesResult } from "@/types";
+
+export const DEFAULT_STUDENT_AVATARS = [
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=100&h=100&fit=crop&crop=faces",
+  "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=faces",
+];
+
+export const COURSE_CATEGORIES = [
+  "Featured",
+  "Music",
+  "Drawing & Painting",
+  "Marketing",
+  "Animation",
+  "Social Media",
+  "UI/UX Design",
+  "Creative Marketing",
+  "Digital Illustration",
+  "Film & Video",
+  "Crafts",
+  "Freelance & Entrepreneurship",
+  "Graphic Design",
+  "Photography",
+  "Productivity",
+  "Web Development",
+  "Data Science",
+  "Cooking",
+] as const;
+
+export const COURSES_DATA: Course[] = [
+  {
+    id: "course-1",
+    title: "Learn Figma from Basic",
+    slug: "learn-figma-from-basic",
+    category: "UI/UX Design",
+    instructor: "purepearl studio",
+    rating: 4.5,
+    level: "Beginner",
+    lessonsCount: 17,
+    duration: "2 hours 16 mins",
+    commentsCount: 59,
+    price: 25,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "26+",
+    featured: true,
+  },
+  {
+    id: "course-2",
+    title: "Build Digital Asset",
+    slug: "build-digital-asset",
+    category: "Digital Illustration",
+    instructor: "purepearl studio",
+    rating: 4.5,
+    level: "Beginner",
+    lessonsCount: 17,
+    duration: "2 hours 16 mins",
+    commentsCount: 59,
+    price: 25,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "26+",
+    featured: true,
+  },
+  {
+    id: "course-3",
+    title: "the Power of Big Data",
+    slug: "the-power-of-big-data",
+    category: "Data Science",
+    instructor: "purepearl studio",
+    rating: 4.5,
+    level: "Beginner",
+    lessonsCount: 17,
+    duration: "2 hours 16 mins",
+    commentsCount: 59,
+    price: 25,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "26+",
+    featured: true,
+  },
+  {
+    id: "course-4",
+    title: "Balancing Productivity an...",
+    slug: "balancing-productivity-and-life",
+    category: "Productivity",
+    instructor: "purepearl studio",
+    rating: 4.5,
+    level: "Beginner",
+    lessonsCount: 17,
+    duration: "2 hours 16 mins",
+    commentsCount: 59,
+    price: 25,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "26+",
+    featured: true,
+  },
+  {
+    id: "course-5",
+    title: "Mastering Money Manage...",
+    slug: "mastering-money-management",
+    category: "Creative Marketing",
+    instructor: "purepearl studio",
+    rating: 4.5,
+    level: "Beginner",
+    lessonsCount: 17,
+    duration: "2 hours 16 mins",
+    commentsCount: 59,
+    price: 25,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "26+",
+    featured: true,
+  },
+  {
+    id: "course-6",
+    title: "From Idea to Startup Succ...",
+    slug: "from-idea-to-startup-success",
+    category: "Freelance & Entrepreneurship",
+    instructor: "purepearl studio",
+    rating: 4.5,
+    level: "Beginner",
+    lessonsCount: 17,
+    duration: "2 hours 16 mins",
+    commentsCount: 59,
+    price: 25,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "26+",
+    featured: true,
+  },
+  {
+    id: "course-7",
+    title: "Modern Web Development with Next.js",
+    slug: "modern-web-development-nextjs",
+    category: "Web Development",
+    instructor: "purepearl studio",
+    rating: 4.9,
+    level: "Intermediate",
+    lessonsCount: 24,
+    duration: "4 hours 30 mins",
+    commentsCount: 88,
+    price: 35,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "42+",
+    featured: true,
+  },
+  {
+    id: "course-8",
+    title: "Cinematic Film & Video Production",
+    slug: "cinematic-film-video-production",
+    category: "Film & Video",
+    instructor: "purepearl studio",
+    rating: 4.8,
+    level: "Intermediate",
+    lessonsCount: 20,
+    duration: "3 hours 45 mins",
+    commentsCount: 45,
+    price: 30,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "19+",
+    featured: false,
+  },
+  {
+    id: "course-9",
+    title: "Music Production & Audio Engineering",
+    slug: "music-production-audio-engineering",
+    category: "Music",
+    instructor: "purepearl studio",
+    rating: 4.7,
+    level: "Beginner",
+    lessonsCount: 15,
+    duration: "2 hours 50 mins",
+    commentsCount: 38,
+    price: 28,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "31+",
+    featured: false,
+  },
+  {
+    id: "course-10",
+    title: "Mastering Fine Drawing & Painting",
+    slug: "mastering-fine-drawing-painting",
+    category: "Drawing & Painting",
+    instructor: "purepearl studio",
+    rating: 4.6,
+    level: "Beginner",
+    lessonsCount: 18,
+    duration: "3 hours 10 mins",
+    commentsCount: 62,
+    price: 25,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "22+",
+    featured: false,
+  },
+  {
+    id: "course-11",
+    title: "Social Media Growth Strategy",
+    slug: "social-media-growth-strategy",
+    category: "Social Media",
+    instructor: "purepearl studio",
+    rating: 4.8,
+    level: "Intermediate",
+    lessonsCount: 16,
+    duration: "2 hours 20 mins",
+    commentsCount: 74,
+    price: 22,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "50+",
+    featured: false,
+  },
+  {
+    id: "course-12",
+    title: "Culinary Arts & Gourmet Cooking",
+    slug: "culinary-arts-gourmet-cooking",
+    category: "Cooking",
+    instructor: "purepearl studio",
+    rating: 4.9,
+    level: "Beginner",
+    lessonsCount: 14,
+    duration: "2 hours 05 mins",
+    commentsCount: 41,
+    price: 24,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "35+",
+    featured: false,
+  },
+  {
+    id: "course-13",
+    title: "Brand Identity & Graphic Design",
+    slug: "brand-identity-graphic-design",
+    category: "Graphic Design",
+    instructor: "purepearl studio",
+    rating: 4.7,
+    level: "Intermediate",
+    lessonsCount: 19,
+    duration: "3 hours 15 mins",
+    commentsCount: 52,
+    price: 28,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "29+",
+    featured: false,
+  },
+  {
+    id: "course-14",
+    title: "Street & Portrait Photography Mastery",
+    slug: "photography-mastery",
+    category: "Photography",
+    instructor: "purepearl studio",
+    rating: 4.8,
+    level: "Advanced",
+    lessonsCount: 22,
+    duration: "3 hours 40 mins",
+    commentsCount: 66,
+    price: 32,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "38+",
+    featured: false,
+  },
+  {
+    id: "course-15",
+    title: "2D Character Animation in Motion",
+    slug: "2d-character-animation",
+    category: "Animation",
+    instructor: "purepearl studio",
+    rating: 4.6,
+    level: "Intermediate",
+    lessonsCount: 21,
+    duration: "3 hours 25 mins",
+    commentsCount: 47,
+    price: 29,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "24+",
+    featured: false,
+  },
+  {
+    id: "course-16",
+    title: "Digital Marketing & Performance Ads",
+    slug: "digital-marketing-performance-ads",
+    category: "Marketing",
+    instructor: "purepearl studio",
+    rating: 4.7,
+    level: "Beginner",
+    lessonsCount: 16,
+    duration: "2 hours 40 mins",
+    commentsCount: 58,
+    price: 25,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "44+",
+    featured: false,
+  },
+  {
+    id: "course-17",
+    title: "Creative Pottery & Modern Crafts",
+    slug: "creative-pottery-crafts",
+    category: "Crafts",
+    instructor: "purepearl studio",
+    rating: 4.9,
+    level: "Beginner",
+    lessonsCount: 12,
+    duration: "2 hours 10 mins",
+    commentsCount: 33,
+    price: 20,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "17+",
+    featured: false,
+  },
+  {
+    id: "course-18",
+    title: "UX Research & Design Thinking",
+    slug: "ux-research-design-thinking",
+    category: "UI/UX Design",
+    instructor: "purepearl studio",
+    rating: 4.8,
+    level: "Advanced",
+    lessonsCount: 25,
+    duration: "4 hours 15 mins",
+    commentsCount: 82,
+    price: 36,
+    period: "lifetime",
+    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
+    studentAvatars: DEFAULT_STUDENT_AVATARS,
+    enrolledCount: "53+",
+    featured: false,
+  },
+];
+
+export async function getCourses(
+  params: CourseFilterParams = {}
+): Promise<PaginatedCoursesResult> {
+  // Simulating async server data retrieval (Promise-based)
+  const {
+    query = "",
+    category = "",
+    level = "",
+    sort = "relevance",
+    page = 1,
+    pageSize = 6,
+  } = params;
+
+  let filtered = [...COURSES_DATA];
+
+  // Search query filter (matches title, instructor, category)
+  if (query.trim()) {
+    const q = query.toLowerCase().trim();
+    filtered = filtered.filter(
+      (c) =>
+        c.title.toLowerCase().includes(q) ||
+        c.instructor.toLowerCase().includes(q) ||
+        c.category.toLowerCase().includes(q)
+    );
+  }
+
+  // Category filter
+  if (category && category !== "Featured" && category !== "All") {
+    filtered = filtered.filter(
+      (c) => c.category.toLowerCase() === category.toLowerCase()
+    );
+  }
+
+  // Level filter
+  if (level && level !== "All") {
+    filtered = filtered.filter(
+      (c) => c.level.toLowerCase() === level.toLowerCase()
+    );
+  }
+
+  // Sorting
+  if (sort === "rating") {
+    filtered.sort((a, b) => b.rating - a.rating);
+  } else if (sort === "price-low") {
+    filtered.sort((a, b) => a.price - b.price);
+  } else if (sort === "price-high") {
+    filtered.sort((a, b) => b.price - a.price);
+  } else if (sort === "lessons") {
+    filtered.sort((a, b) => b.lessonsCount - a.lessonsCount);
+  }
+
+  const total = filtered.length;
+  const totalPages = Math.ceil(total / pageSize) || 1;
+  const currentPage = Math.max(1, Math.min(page, totalPages));
+  const startIndex = (currentPage - 1) * pageSize;
+  const paginatedCourses = filtered.slice(startIndex, startIndex + pageSize);
+
+  return {
+    courses: paginatedCourses,
+    total,
+    page: currentPage,
+    pageSize,
+    totalPages,
+  };
+}

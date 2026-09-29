@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import { HeroSearch } from "./hero-search";
 import { HeroShapes } from "./hero-shapes";
