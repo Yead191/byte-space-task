@@ -38,7 +38,8 @@ export function Footer() {
               </Link>
 
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-sm mb-6">
-                Stay up to date with our latest features and releases by joining our newsletter.
+                Stay up to date with our latest features and releases by joining
+                our newsletter.
               </p>
             </div>
 
@@ -50,14 +51,17 @@ export function Footer() {
                   <span>Thank you for subscribing! Check your inbox soon.</span>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} className="flex items-center gap-2 max-w-md">
+                <form
+                  onSubmit={handleSubscribe}
+                  className="flex items-center gap-2 max-w-md"
+                >
                   <input
                     type="email"
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="flex-1 bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 text-xs sm:text-sm rounded-full px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-lime"
+                    className="flex-1 bg-white border border-slate-200 text-slate-900  text-xs sm:text-sm rounded-full px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-lime"
                   />
                   <button
                     type="submit"
@@ -70,7 +74,10 @@ export function Footer() {
 
               <p className="text-[11px] text-slate-400 mt-3 leading-normal max-w-sm">
                 By subscribing, you agree to our{" "}
-                <Link href="/privacy" className="underline hover:text-slate-600">
+                <Link
+                  href="/privacy"
+                  className="underline hover:text-slate-600"
+                >
                   Privacy Policy
                 </Link>{" "}
                 and consent to receive updates from our company.
@@ -84,27 +91,42 @@ export function Footer() {
             <div>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/courses" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Popular Courses
                   </Link>
                 </li>
                 <li>
-                  <Link href="/courses" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Featured Categories
                   </Link>
                 </li>
                 <li>
-                  <Link href="/courses?category=Business" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses?category=Business"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Business
                   </Link>
                 </li>
                 <li>
-                  <Link href="/courses?category=IT" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses?category=IT"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     IT
                   </Link>
                 </li>
                 <li>
-                  <Link href="/courses?category=Design" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses?category=Design"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Design
                   </Link>
                 </li>
@@ -115,27 +137,42 @@ export function Footer() {
             <div>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/courses?category=Development" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses?category=Development"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Development
                   </Link>
                 </li>
                 <li>
-                  <Link href="/courses?category=Marketing" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses?category=Marketing"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Marketing
                   </Link>
                 </li>
                 <li>
-                  <Link href="/courses?category=Photography" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses?category=Photography"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Photography
                   </Link>
                 </li>
                 <li>
-                  <Link href="/courses?category=Finance" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses?category=Finance"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Finance
                   </Link>
                 </li>
                 <li>
-                  <Link href="/courses?category=Sport" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses?category=Sport"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Sport
                   </Link>
                 </li>
@@ -146,27 +183,42 @@ export function Footer() {
             <div className="col-span-2 sm:col-span-1">
               <ul className="space-y-3">
                 <li>
-                  <Link href="/creators" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/creators"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Become a Creator
                   </Link>
                 </li>
                 <li>
-                  <Link href="/affiliate" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/affiliate"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Affiliate Program
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/contact"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Contact
                   </Link>
                 </li>
                 <li>
-                  <Link href="/help" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/help"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     Help
                   </Link>
                 </li>
                 <li>
-                  <Link href="/courses" className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors">
+                  <Link
+                    href="/courses"
+                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                  >
                     More
                   </Link>
                 </li>
@@ -180,13 +232,22 @@ export function Footer() {
           <p>© {new Date().getFullYear()} ByteSpace. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-slate-800 transition-colors">
+            <Link
+              href="/privacy"
+              className="hover:text-slate-800 transition-colors"
+            >
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-slate-800 transition-colors">
+            <Link
+              href="/terms"
+              className="hover:text-slate-800 transition-colors"
+            >
               Terms of Service
             </Link>
-            <Link href="/cookies" className="hover:text-slate-800 transition-colors">
+            <Link
+              href="/cookies"
+              className="hover:text-slate-800 transition-colors"
+            >
               Cookies Settings
             </Link>
           </div>

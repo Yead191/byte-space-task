@@ -33,7 +33,7 @@ export function HeroSearch() {
           placeholder="Course, topic, creator"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="bg-transparent border-0 text-slate-900 placeholder:text-slate-400 text-sm focus:outline-none w-full sm:w-64 md:w-72"
+          className="bg-transparent border-0 text-slate-900  text-sm focus:outline-none w-full sm:w-64 md:w-72"
         />
       </div>
 
