@@ -111,7 +111,7 @@ export function HeroShapes() {
         </svg>
       </div>
 
-      <div className="absolute right-2 sm:right-8 lg:right-14 bottom-4 sm:bottom-8 lg:bottom-12 w-24 sm:w-36 lg:w-44 z-10 pointer-events-none animate-pulse-scale">
+      <div className="absolute right-2 sm:right-8 lg:right-14 bottom-4.5 sm:bottom-8 lg:bottom-12 w-24 sm:w-36 lg:w-44 z-10 pointer-events-none animate-pulse-scale">
         <div className="transform rotate-90 scale-x-[-1]">
           <Image
             src="/assets/hero/left-middle.svg"
