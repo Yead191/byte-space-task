@@ -4,7 +4,7 @@ import Image from "next/image";
 export function HeroShapes() {
   return (
     <>
-      <div className="absolute -left-10 sm:-left-8 lg:-left-4 top-16 sm:top-24 w-32 sm:w-48 lg:w-64 z-10 pointer-events-none animate-float-slow">
+      <div className="absolute -left-10 sm:-left-8 lg:-left-4 top-16 sm:top-24 w-24 sm:w-32 lg:w-40 xl:w-48 z-10 pointer-events-none animate-float-slow">
         <Image
           src="/assets/hero/left-top.svg"
           alt=""
@@ -15,7 +15,7 @@ export function HeroShapes() {
         />
       </div>
 
-      <div className="absolute left-4 sm:left-14 lg:left-24 top-[44%] sm:top-[42%] w-20 sm:w-28 lg:w-36 z-10 pointer-events-none animate-pulse-scale">
+      <div className="absolute left-4 sm:left-14 lg:left-24 top-[44%] sm:top-[42%] w-14 sm:w-18 lg:w-22 xl:w-26 z-10 pointer-events-none animate-pulse-scale">
         <Image
           src="/assets/hero/left-middle.svg"
           alt=""
@@ -25,7 +25,7 @@ export function HeroShapes() {
         />
       </div>
 
-      <div className="absolute -left-10 sm:-left-8 lg:left-2 bottom-4 sm:bottom-8 lg:bottom-12 w-40 sm:w-56 lg:w-72 z-10 pointer-events-none animate-float-reverse">
+      <div className="absolute -left-10 sm:-left-8 lg:left-2 bottom-4 sm:bottom-8 lg:bottom-12 w-28 sm:w-38 lg:w-48 xl:w-56 z-10 pointer-events-none animate-float-reverse">
         <Image
           src="/assets/hero/left-bottom.svg"
           alt=""
@@ -35,7 +35,7 @@ export function HeroShapes() {
         />
       </div>
 
-      <div className="absolute -right-8 sm:-right-6 lg:-right-2 top-14 sm:top-20 w-36 sm:w-52 lg:w-64 z-10 pointer-events-none animate-float-slow">
+      <div className="absolute -right-8 sm:-right-6 lg:-right-2 top-14 sm:top-20 w-26 sm:w-36 lg:w-42 xl:w-50 z-10 pointer-events-none animate-float-slow">
         <svg
           viewBox="0 0 200 240"
           fill="none"
@@ -79,7 +79,7 @@ export function HeroShapes() {
         </svg>
       </div>
 
-      <div className="absolute right-6 sm:right-16 lg:right-28 top-[42%] sm:top-[40%] w-24 sm:w-36 lg:w-44 z-10 pointer-events-none animate-float-reverse">
+      <div className="absolute right-6 sm:right-16 lg:right-28 top-[42%] sm:top-[40%] w-18 sm:w-24 lg:w-28 xl:w-34 z-10 pointer-events-none animate-float-reverse">
         <svg
           viewBox="0 0 160 160"
           fill="none"
@@ -111,7 +111,7 @@ export function HeroShapes() {
         </svg>
       </div>
 
-      <div className="absolute right-2 sm:right-8 lg:right-14 bottom-4.5 sm:bottom-8 lg:bottom-12 w-24 sm:w-36 lg:w-44 z-10 pointer-events-none animate-pulse-scale">
+      <div className="absolute right-2 sm:right-8 lg:right-14 bottom-4.5 sm:bottom-8 lg:bottom-12 w-18 sm:w-24 lg:w-28 xl:w-34 z-10 pointer-events-none animate-pulse-scale">
         <div className="transform rotate-90 scale-x-[-1]">
           <Image
             src="/assets/hero/left-middle.svg"
@@ -125,3 +125,4 @@ export function HeroShapes() {
     </>
   );
 }
+

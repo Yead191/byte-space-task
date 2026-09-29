@@ -63,13 +63,33 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: var(--font-satoshi), system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-satoshi), system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  --font-poppins: var(--font-poppins);
+  --font-satoshi: var(--font-satoshi);
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-satoshi), system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  font-family: var(--font-poppins), var(--font-satoshi), system-ui, -apple-system, sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-satoshi), system-ui, -apple-system, sans-serif;
 }
 
 html {

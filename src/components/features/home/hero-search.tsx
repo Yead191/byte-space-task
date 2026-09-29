@@ -18,7 +18,7 @@ export function HeroSearch() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-xl mx-auto mb-10 sm:mb-14 animate-fade-in-up delay-150"
+      className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-xl mx-auto mb-8 sm:mb-10 xl:mb-5 2xl:mb-8 animate-fade-in-up delay-150"
     >
       <div className="w-full sm:w-auto flex items-center bg-white px-5 py-3 rounded-full shadow-xl border border-white/20 transition-all focus-within:ring-4 focus-within:ring-brand-lime/40">
         <Search className="w-4 h-4 text-slate-400 mr-3 shrink-0" />

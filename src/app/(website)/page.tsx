@@ -11,18 +11,21 @@ export default function HomePage() {
 
       {/* Trusted Logos Ribbon */}
       <TrustedLogos />
-
       {/* Discover Your Passion Preview Section */}
       <section className="py-20 bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge variant="blue" className="mb-4 font-bold text-xs uppercase tracking-wider">
+          <Badge
+            variant="blue"
+            className="mb-4 font-bold text-xs uppercase tracking-wider"
+          >
             Explore Skills
           </Badge>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
             Discover Your Passion, Build Your Skills
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto mb-10 text-sm sm:text-base leading-relaxed">
-            Explore top-rated courses across technology, design, marketing, and business. Start learning from industry leaders today.
+            Explore top-rated courses across technology, design, marketing, and
+            business. Start learning from industry leaders today.
           </p>
 
           <div className="flex flex-wrap justify-center gap-2.5 max-w-3xl mx-auto mb-12">
