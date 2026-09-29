@@ -15,8 +15,8 @@ export const mainNavItems: NavItem[] = [
     href: "/courses",
   },
   {
-    title: "Stories",
-    href: "/stories",
+    title: "Creators",
+    href: "/creators",
   },
 ];
 

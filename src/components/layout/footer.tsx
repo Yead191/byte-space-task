@@ -32,19 +32,14 @@ export function Footer() {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               {/* Logo */}
-              <Link href="/" className="inline-flex items-center gap-2.5 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-white/10 p-1 flex items-center justify-center">
-                  <Image
-                    src={siteConfig.logo}
-                    alt={siteConfig.name}
-                    width={36}
-                    height={36}
-                    className="object-contain"
-                  />
-                </div>
-                <span className="text-2xl font-black text-white tracking-tight">
-                  bytespace<span className="text-brand-lime">.</span>
-                </span>
+              <Link href="/" className="inline-flex items-center mb-6">
+                <Image
+                  src="/logo.png"
+                  alt={siteConfig.name}
+                  width={142}
+                  height={36}
+                  className="h-8 w-auto object-contain"
+                />
               </Link>
 
               <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
