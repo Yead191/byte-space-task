@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { motion } from "framer-motion";
 
 const logos = [
   { name: "Logoipsum 1", icon: "❖ Logoipsum" },
@@ -21,19 +18,17 @@ export function TrustedLogos() {
 
         <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14 lg:gap-20 opacity-70 hover:opacity-100 transition-opacity">
           {logos.map((logo, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="flex items-center gap-2 text-slate-500 font-bold text-lg sm:text-xl tracking-tight grayscale hover:grayscale-0 hover:text-secondary transition-all cursor-pointer"
+              style={{ animationDelay: `${index * 100}ms` }}
+              className="animate-fade-in-up flex items-center gap-2 text-slate-500 font-bold text-lg sm:text-xl tracking-tight grayscale hover:grayscale-0 hover:text-secondary transition-all cursor-pointer hover:scale-105 duration-200"
             >
               <span>{logo.icon}</span>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
     </div>
   );
 }
+

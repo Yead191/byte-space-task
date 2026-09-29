@@ -7,7 +7,7 @@ import { siteConfig } from "@/config/site";
 import { footerNavItems } from "@/config/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Send, CheckCircle2, Globe, Mail } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 
 export function Footer() {
   const [email, setEmail] = useState("");

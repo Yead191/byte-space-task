@@ -2,19 +2,20 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Search, Sparkles, TrendingUp, Users, Star, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Search, Sparkles, TrendingUp, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Avatar } from "@/components/ui/avatar";
-import { motion } from "framer-motion";
 
 export function HeroSection() {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      window.location.href = `/courses?query=${encodeURIComponent(searchQuery)}`;
+      router.push(`/courses?query=${encodeURIComponent(searchQuery)}`);
     }
   };
 
@@ -28,12 +29,7 @@ export function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Main Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
-        >
+        <div className="max-w-4xl mx-auto animate-fade-in-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white text-xs sm:text-sm font-semibold mb-6 backdrop-blur-md border border-white/20 shadow-xs">
             <Sparkles className="w-4 h-4 text-brand-lime animate-pulse" />
             <span>Over 500+ New Industry Courses Added This Month</span>
@@ -61,15 +57,12 @@ export function HeroSection() {
           <p className="text-base sm:text-lg lg:text-xl text-white/80 font-normal max-w-2xl mx-auto leading-relaxed mb-8">
             Unlock your potential with expert-led courses and learn at your own pace with ByteSpace.
           </p>
-        </motion.div>
+        </div>
 
         {/* Floating Capsule Search Bar */}
-        <motion.form
+        <form
           onSubmit={handleSearchSubmit}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="max-w-xl mx-auto mb-14"
+          className="max-w-xl mx-auto mb-14 animate-fade-in-up delay-150"
         >
           <div className="relative flex items-center bg-white p-2 rounded-full shadow-2xl border-2 border-white/20 transition-all focus-within:ring-4 focus-within:ring-brand-lime/50">
             <Search className="w-5 h-5 text-slate-400 ml-4 shrink-0" />
@@ -88,57 +81,40 @@ export function HeroSection() {
               Search
             </Button>
           </div>
-        </motion.form>
+        </form>
 
         {/* Center Graphic & Floating Badges */}
         <div className="relative max-w-3xl mx-auto mt-4">
           {/* Floating Shape 1: Lime Pill / Ring (Left) */}
-          <motion.div
-            animate={{ y: [0, -12, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -left-6 sm:-left-16 top-12 z-10 hidden sm:block"
-          >
+          <div className="absolute -left-6 sm:-left-16 top-12 z-10 hidden sm:block animate-float-slow">
             <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-[10px] border-brand-lime shadow-lg" />
-          </motion.div>
+          </div>
 
           {/* Floating Shape 2: White Cone/Triangle (Top Right) */}
-          <motion.div
-            animate={{ y: [0, 14, 0], rotate: [0, -8, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute -right-4 sm:-right-12 top-6 z-10 hidden sm:block"
-          >
+          <div className="absolute -right-4 sm:-right-12 top-6 z-10 hidden sm:block animate-float-reverse">
             <div className="w-0 h-0 border-l-[20px] border-l-transparent border-b-[35px] border-b-white border-r-[20px] border-r-transparent drop-shadow-lg transform rotate-12" />
-          </motion.div>
+          </div>
 
           {/* Floating Shape 3: Lime Squiggle (Bottom Left) */}
-          <motion.div
-            animate={{ scale: [1, 1.08, 1], rotate: [0, -10, 0] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute left-2 -bottom-6 z-10 hidden sm:block"
-          >
+          <div className="absolute left-2 -bottom-6 z-10 hidden sm:block animate-pulse-scale">
             <svg className="w-16 h-16 text-brand-lime" viewBox="0 0 100 100" fill="currentColor">
               <path d="M10 50 Q 30 20, 50 50 T 90 50" stroke="currentColor" strokeWidth="16" fill="none" strokeLinecap="round" />
             </svg>
-          </motion.div>
+          </div>
 
           {/* Main Visual Circle & Card Container */}
           <div className="relative mx-auto w-full max-w-lg aspect-square sm:aspect-[4/3] flex items-center justify-center">
             {/* Giant Lime Accent Backdrop Circle */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-brand-lime shadow-2xl shadow-brand-lime/30"
-            />
+            <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-brand-lime shadow-2xl shadow-brand-lime/30 animate-scale-in" />
 
-            {/* Student Avatar Visual (Representing Figma Graphic) */}
+            {/* Student Avatar Visual (Representing Graphic) */}
             <div className="relative z-10 flex flex-col items-center">
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 bg-slate-900/10">
-                {/* Visual representation of Student */}
                 <Image
                   src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
                   alt="Student learning online"
                   fill
+                  sizes="(max-width: 640px) 256px, 320px"
                   className="object-cover object-center"
                   priority
                 />
@@ -146,12 +122,7 @@ export function HeroSection() {
             </div>
 
             {/* Floating Card Left: Explore Courses Badge */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="absolute left-0 sm:-left-12 top-10 z-20 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-2xl border border-slate-100 flex items-center gap-3 text-left"
-            >
+            <div className="absolute left-0 sm:-left-12 top-10 z-20 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-2xl border border-slate-100 flex items-center gap-3 text-left animate-fade-in-left delay-300 animate-float-card-left">
               <div className="flex -space-x-2 overflow-hidden">
                 <Avatar src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100" fallback="U1" />
                 <Avatar src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100" fallback="U2" />
@@ -165,15 +136,10 @@ export function HeroSection() {
                   <span className="text-[10px] text-slate-500 font-medium">(12k+ enrolled)</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Floating Card Right: Growing Page 55% */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="absolute right-0 sm:-right-10 top-16 z-20 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-slate-100 text-left min-w-[170px]"
-            >
+            <div className="absolute right-0 sm:-right-10 top-16 z-20 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-slate-100 text-left min-w-[170px] animate-fade-in-right delay-400 animate-float-card-right">
               <div className="flex items-center justify-between gap-2 mb-1.5">
                 <span className="text-xs font-semibold text-slate-500">Growing progress</span>
                 <TrendingUp className="w-4 h-4 text-emerald-500" />
@@ -182,12 +148,13 @@ export function HeroSection() {
                 55%
               </div>
               <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden mt-2">
-                <div className="bg-brand-blue h-full w-[55%] rounded-full" />
+                <div className="bg-brand-blue h-full w-[55%] rounded-full transition-all duration-1000 ease-out" />
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
