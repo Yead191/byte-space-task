@@ -1,12 +1,17 @@
 import React, { Suspense } from "react";
 import { Metadata } from "next";
+import Link from "next/link";
+import { BookOpen } from "lucide-react";
 import { getCourses } from "@/data/courses";
 import { CourseCard } from "@/components/features/courses/course-card";
 import { CoursesSearchHero } from "@/components/features/courses/courses-search-hero";
 import { CoursesFilterBar } from "@/components/features/courses/courses-filter-bar";
 import { CoursesPagination } from "@/components/features/courses/courses-pagination";
-import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import {
+  SearchHeroSkeleton,
+  FilterBarSkeleton,
+  PaginationSkeleton,
+} from "@/components/features/courses/courses-skeletons";
 
 export const metadata: Metadata = {
   title: "Courses - ByteSpace",
@@ -24,8 +29,9 @@ interface CoursesPageProps {
   }>;
 }
 
+const COURSES_PER_PAGE = 9;
+
 export default async function CoursesPage({ searchParams }: CoursesPageProps) {
-  // Handling searchParams as a Promise on the server side first (Next.js 15+ standard)
   const resolvedParams = await searchParams;
   const query = resolvedParams.query || "";
   const category = resolvedParams.category || "";
@@ -33,20 +39,24 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
   const sort = resolvedParams.sort || "relevance";
   const page = parseInt(resolvedParams.page || "1", 10) || 1;
 
-  // Server-side filtered & paginated data retrieval
-  const { courses, total, totalPages, page: currentPage } = await getCourses({
+  const {
+    courses,
+    total,
+    totalPages,
+    page: currentPage,
+  } = await getCourses({
     query,
     category,
     level,
     sort,
     page,
-    pageSize: 18,
+    pageSize: COURSES_PER_PAGE,
   });
 
   return (
     <div className="w-full min-h-screen bg-white">
-      {/* Top Search Hero Section (Blue with Search Bar) */}
-      <Suspense fallback={<div className="h-64 bg-brand-blue" />}>
+      {/* Top Search Hero Section */}
+      <Suspense fallback={<SearchHeroSkeleton />}>
         <CoursesSearchHero
           initialQuery={query}
           initialCategory={category || "Courses"}
@@ -56,7 +66,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
       {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         {/* Filters Bar & Category Pills */}
-        <Suspense fallback={<div className="h-20 bg-slate-50 animate-pulse rounded-2xl" />}>
+        <Suspense fallback={<FilterBarSkeleton />}>
           <CoursesFilterBar
             currentCategory={category}
             currentLevel={level}
@@ -64,11 +74,15 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
           />
         </Suspense>
 
-        {/* Active Search / Filter Feedback */}
+        {/* Search feedback when query active */}
         {query && (
           <div className="mb-6 flex items-center justify-between">
             <p className="text-sm text-slate-500">
-              Showing results for <span className="font-semibold text-slate-900">&quot;{query}&quot;</span> ({total} courses found)
+              Showing results for{" "}
+              <span className="font-semibold text-slate-900">
+                &quot;{query}&quot;
+              </span>{" "}
+              ({total} courses found)
             </p>
             <Link
               href="/courses"
@@ -79,15 +93,11 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
           </div>
         )}
 
-        {/* Courses Grid or Empty State */}
+        {/* Courses Grid */}
         {courses.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
             {courses.map((course, idx) => (
-              <CourseCard
-                key={course.id}
-                course={course}
-                priority={idx < 6}
-              />
+              <CourseCard key={course.id} course={course} priority={idx < 6} />
             ))}
           </div>
         ) : (
@@ -99,8 +109,8 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
               No courses found
             </h3>
             <p className="text-sm text-slate-500 max-w-md mx-auto mb-6">
-              We couldn&apos;t find any courses matching your filters. Try adjusting your
-              search term or resetting your category selections.
+              We couldn&apos;t find any courses matching your filters. Try
+              adjusting your search term or resetting your category selections.
             </p>
             <Link
               href="/courses"
@@ -113,7 +123,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <Suspense fallback={null}>
+          <Suspense fallback={<PaginationSkeleton />}>
             <CoursesPagination
               currentPage={currentPage}
               totalPages={totalPages}

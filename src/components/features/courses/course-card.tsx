@@ -23,7 +23,10 @@ export function CourseCard({ course, priority = false }: CourseCardProps) {
       : DEFAULT_AVATARS;
 
   return (
-    <div className="bg-white rounded-4xl p-4 sm:p-4.5 border border-[#E5E7EB] hover:shadow-xl hover:border-slate-300 transition-all duration-300 group flex flex-col justify-between">
+    <Link
+      href={`/courses/${course.slug || course.id}`}
+      className="bg-white rounded-4xl p-4 sm:p-4.5 border border-[#E5E7EB] hover:shadow-xl hover:border-slate-300 transition-all duration-300 group flex flex-col justify-between  cursor-pointer"
+    >
       {/* Thumbnail with floating frosted meta pills */}
       <div className="relative aspect-16/10 w-full rounded-[22px] overflow-hidden bg-slate-100">
         <Image
@@ -58,9 +61,7 @@ export function CourseCard({ course, priority = false }: CourseCardProps) {
               title={course.title}
               className="text-slate-950 font-bold text-lg sm:text-[19px] tracking-tight line-clamp-1 group-hover:text-brand-blue transition-colors font-heading"
             >
-              <Link href={`/courses/${course.slug || course.id}`}>
-                {course.title}
-              </Link>
+              {course.title}
             </h3>
 
             <div className="flex items-center gap-1.5 shrink-0 text-[#71717A] font-medium text-base">
@@ -71,7 +72,7 @@ export function CourseCard({ course, priority = false }: CourseCardProps) {
 
           <p className="text-xs sm:text-sm text-[#71717A] mt-1">
             by{" "}
-            <span className="text-[#0B44C4] font-medium hover:underline cursor-pointer">
+            <span className="text-[#0B44C4] font-medium group-hover:underline">
               {course.instructor}
             </span>
           </p>
@@ -125,6 +126,6 @@ export function CourseCard({ course, priority = false }: CourseCardProps) {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

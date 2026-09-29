@@ -2,7 +2,13 @@
 
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { SlidersHorizontal, BarChart2, LayoutGrid, ArrowUpDown, Check } from "lucide-react";
+import {
+  SlidersHorizontal,
+  BarChart2,
+  LayoutGrid,
+  ArrowUpDown,
+  Check,
+} from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -49,7 +55,11 @@ export function CoursesFilterBar({
 
   const updateParam = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());
-    if (!value || value === "All" || (key === "category" && value === "Featured")) {
+    if (
+      !value ||
+      value === "All" ||
+      (key === "category" && value === "Featured")
+    ) {
       params.delete(key);
     } else {
       params.set(key, value);
@@ -65,7 +75,7 @@ export function CoursesFilterBar({
   return (
     <div className="w-full space-y-4 mb-8 sm:mb-10">
       {/* Top Filter & Sorting Row */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-2 border-b border-slate-100">
+      <div className="flex flex-wrap items-center justify-between gap-3 pb-2 ">
         {/* Left Filter Buttons */}
         <div className="flex flex-wrap items-center gap-2">
           {/* Main Filter Toggle */}
@@ -96,10 +106,17 @@ export function CoursesFilterBar({
                 }`}
               >
                 <BarChart2 className="w-3.5 h-3.5 text-slate-600" />
-                <span>{currentLevel && currentLevel !== "All" ? currentLevel : "Level"}</span>
+                <span>
+                  {currentLevel && currentLevel !== "All"
+                    ? currentLevel
+                    : "Level"}
+                </span>
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-40 bg-white border border-slate-100 shadow-xl rounded-2xl p-1 z-50">
+            <DropdownMenuContent
+              align="start"
+              className="w-40 bg-white border border-slate-100 shadow-xl rounded-2xl p-1 z-50"
+            >
               {LEVELS.map((lvl) => (
                 <DropdownMenuItem
                   key={lvl}
@@ -107,7 +124,9 @@ export function CoursesFilterBar({
                   className="rounded-xl px-3 py-2 text-xs font-medium cursor-pointer flex items-center justify-between hover:bg-slate-50"
                 >
                   <span>{lvl === "All" ? "All Levels" : lvl}</span>
-                  {currentLevel === lvl && <Check className="w-3.5 h-3.5 text-brand-blue" />}
+                  {currentLevel === lvl && (
+                    <Check className="w-3.5 h-3.5 text-brand-blue" />
+                  )}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
@@ -132,7 +151,10 @@ export function CoursesFilterBar({
                 </span>
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-48 bg-white border border-slate-100 shadow-xl rounded-2xl p-1 z-50 max-h-64 overflow-y-auto">
+            <DropdownMenuContent
+              align="start"
+              className="w-48 bg-white border border-slate-100 shadow-xl rounded-2xl p-1 z-50 max-h-64 overflow-y-auto"
+            >
               <DropdownMenuItem
                 onClick={() => updateParam("category", "Featured")}
                 className="rounded-xl px-3 py-2 text-xs font-semibold cursor-pointer hover:bg-slate-50"
@@ -146,7 +168,9 @@ export function CoursesFilterBar({
                   className="rounded-xl px-3 py-2 text-xs font-medium cursor-pointer flex items-center justify-between hover:bg-slate-50"
                 >
                   <span>{cat}</span>
-                  {currentCategory === cat && <Check className="w-3.5 h-3.5 text-brand-blue" />}
+                  {currentCategory === cat && (
+                    <Check className="w-3.5 h-3.5 text-brand-blue" />
+                  )}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
@@ -165,7 +189,10 @@ export function CoursesFilterBar({
                 <ArrowUpDown className="w-3.5 h-3.5 text-slate-500" />
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48 bg-white border border-slate-100 shadow-xl rounded-2xl p-1 z-50">
+            <DropdownMenuContent
+              align="end"
+              className="w-48 bg-white border border-slate-100 shadow-xl rounded-2xl p-1 z-50"
+            >
               {SORT_OPTIONS.map((opt) => (
                 <DropdownMenuItem
                   key={opt.value}
@@ -173,7 +200,9 @@ export function CoursesFilterBar({
                   className="rounded-xl px-3 py-2 text-xs font-medium cursor-pointer flex items-center justify-between hover:bg-slate-50"
                 >
                   <span>{opt.label}</span>
-                  {currentSort === opt.value && <Check className="w-3.5 h-3.5 text-brand-blue" />}
+                  {currentSort === opt.value && (
+                    <Check className="w-3.5 h-3.5 text-brand-blue" />
+                  )}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
@@ -185,7 +214,8 @@ export function CoursesFilterBar({
       <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
         {SEARCH_PAGE_PILLS.map((cat) => {
           const isSelected =
-            (cat === "Featured" && (!currentCategory || currentCategory === "Featured")) ||
+            (cat === "Featured" &&
+              (!currentCategory || currentCategory === "Featured")) ||
             activeCategory.toLowerCase() === cat.toLowerCase();
 
           return (

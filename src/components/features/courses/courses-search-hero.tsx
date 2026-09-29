@@ -59,15 +59,21 @@ export function CoursesSearchHero({
   };
 
   return (
-    <section className="w-full bg-brand-blue pt-32 pb-16 sm:pt-36 sm:pb-20 px-4 text-center relative overflow-hidden">
-      {/* Background subtle radial glow / pattern */}
+    <section className="relative w-full bg-brand-blue pt-32 pb-16 sm:pt-36 sm:pb-20 px-4 text-center overflow-hidden">
+      {/* Background grid layout matching home hero */}
       <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px)
+          `,
+          backgroundSize: "96px 96px",
+        }}
       />
 
       <div className="relative max-w-4xl mx-auto z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight font-heading mb-6 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl lg:text-[36px] font-semibold text-white tracking-tight font-heading mb-6 sm:mb-8">
           Find Your Next Course
         </h1>
 
@@ -83,7 +89,7 @@ export function CoursesSearchHero({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search..."
-              className="w-full bg-transparent border-0 text-slate-900 placeholder:text-slate-400 text-sm sm:text-base focus:outline-none"
+              className="w-full bg-transparent border-0 text-slate-900  text-sm sm:text-base focus:outline-none"
             />
           </div>
 

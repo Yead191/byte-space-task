@@ -16,22 +16,38 @@ export function CoursesPagination({
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  if (totalPages <= 1) return null;
+
   const handlePageChange = (newPage: number) => {
     if (newPage < 1 || newPage > totalPages || newPage === currentPage) return;
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", newPage.toString());
-    router.push(`/courses?${params.toString()}`);
+    router.push(`/courses?${params.toString()}`, { scroll: true });
   };
 
-  // Generate page numbers to display (up to 5 pages)
-  const displayPages = Array.from(
-    { length: Math.min(5, Math.max(totalPages, 5)) },
-    (_, i) => i + 1
-  );
+  // Generate pagination numbers: up to 5 page numbers, sliding around currentPage
+  const getPageNumbers = () => {
+    const maxVisible = 5;
+    if (totalPages <= maxVisible) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+
+    let start = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+    let end = start + maxVisible - 1;
+
+    if (end > totalPages) {
+      end = totalPages;
+      start = Math.max(1, end - maxVisible + 1);
+    }
+
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  };
+
+  const pages = getPageNumbers();
 
   return (
-    <nav 
-      aria-label="Courses Pagination" 
+    <nav
+      aria-label="Courses Pagination"
       className="flex items-center justify-center gap-2 pt-12 pb-16"
     >
       {/* Previous Page Button */}
@@ -47,7 +63,7 @@ export function CoursesPagination({
 
       {/* Number Buttons */}
       <div className="flex items-center gap-1 sm:gap-1.5 px-2">
-        {displayPages.map((pageNum) => {
+        {pages.map((pageNum) => {
           const isActive = pageNum === currentPage;
           return (
             <button
