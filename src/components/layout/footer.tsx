@@ -21,24 +21,24 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full bg-white text-slate-700 pt-16 pb-12 border-t border-slate-200">
+    <footer className="w-full bg-white text-slate-700 pt-14 sm:pt-16 lg:pt-20 pb-10 sm:pb-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-slate-100">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Left Column: Brand & Newsletter */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <Link href="/" className="inline-flex items-center mb-4">
+              <Link href="/" className="inline-flex items-center mb-5">
                 <Image
-                  src="/logo.png"
+                  src="/footer-full-logo.png"
                   alt="ByteSpace"
-                  width={142}
-                  height={36}
-                  className="h-8 w-auto object-contain"
+                  width={171}
+                  height={37}
+                  className="h-7 sm:h-8 w-auto object-contain"
                 />
               </Link>
 
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-sm mb-6">
-                Stay up to date with our latest features and releases by joining
+              <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed max-w-sm mb-6">
+                Stay Up to date with our latest features and releases by joining
                 our newsletter.
               </p>
             </div>
@@ -46,14 +46,14 @@ export function Footer() {
             {/* Newsletter Form */}
             <div>
               {subscribed ? (
-                <div className="flex items-center gap-2 text-emerald-700 text-xs sm:text-sm font-semibold bg-emerald-50 border border-emerald-200 p-3 rounded-2xl">
+                <div className="flex items-center gap-2 text-emerald-700 text-xs sm:text-[13px] font-medium bg-emerald-50 border border-emerald-200 p-3 rounded-2xl max-w-md">
                   <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
                   <span>Thank you for subscribing! Check your inbox soon.</span>
                 </div>
               ) : (
                 <form
                   onSubmit={handleSubscribe}
-                  className="flex items-center gap-2 max-w-md"
+                  className="flex items-center gap-3 max-w-md"
                 >
                   <input
                     type="email"
@@ -61,22 +61,22 @@ export function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="flex-1 bg-white border border-slate-200 text-slate-900  text-xs sm:text-sm rounded-full px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-lime"
+                    className="flex-1 max-w-[280px] bg-white border border-slate-300 text-slate-800 placeholder:text-slate-400 text-xs sm:text-[13px] rounded-full px-5 py-2.5 sm:py-3 focus:outline-none focus:border-slate-500 transition-colors"
                   />
                   <button
                     type="submit"
-                    className="bg-brand-lime text-slate-950 font-bold hover:bg-[#c3ea15] rounded-full px-6 py-2.5 text-xs sm:text-sm transition-all shadow-xs cursor-pointer shrink-0"
+                    className="bg-brand-lime text-slate-950 font-medium hover:bg-[#c6ec1a] active:scale-95 rounded-full px-7 py-2.5 sm:py-3 text-xs sm:text-[13px] transition-all cursor-pointer shrink-0"
                   >
-                    Subscribe
+                    Search
                   </button>
                 </form>
               )}
 
-              <p className="text-[11px] text-slate-400 mt-3 leading-normal max-w-sm">
+              <p className="text-[11px] text-slate-500 mt-3 leading-normal max-w-sm">
                 By subscribing, you agree to our{" "}
                 <Link
                   href="/privacy"
-                  className="underline hover:text-slate-600"
+                  className="underline hover:text-slate-700"
                 >
                   Privacy Policy
                 </Link>{" "}
@@ -85,23 +85,23 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Right Columns: Navigation Links Matching Screenshot */}
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          {/* Right Columns: Navigation Links Matching Figma Screenshot */}
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 lg:gap-12">
             {/* Column 1 */}
             <div>
-              <ul className="space-y-3">
+              <ul className="space-y-3.5 sm:space-y-4">
                 <li>
                   <Link
                     href="/courses"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
-                    Popular Courses
+                    Featured Courses
                   </Link>
                 </li>
                 <li>
                   <Link
                     href="/courses"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Featured Categories
                   </Link>
@@ -109,7 +109,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/courses?category=Business"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Business
                   </Link>
@@ -117,7 +117,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/courses?category=IT"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     IT
                   </Link>
@@ -125,7 +125,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/courses?category=Design"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Design
                   </Link>
@@ -135,11 +135,11 @@ export function Footer() {
 
             {/* Column 2 */}
             <div>
-              <ul className="space-y-3">
+              <ul className="space-y-3.5 sm:space-y-4">
                 <li>
                   <Link
                     href="/courses?category=Development"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Development
                   </Link>
@@ -147,7 +147,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/courses?category=Marketing"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Marketing
                   </Link>
@@ -155,7 +155,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/courses?category=Photography"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Photography
                   </Link>
@@ -163,7 +163,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/courses?category=Finance"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Finance
                   </Link>
@@ -171,7 +171,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/courses?category=Sport"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Sport
                   </Link>
@@ -181,11 +181,11 @@ export function Footer() {
 
             {/* Column 3 */}
             <div className="col-span-2 sm:col-span-1">
-              <ul className="space-y-3">
+              <ul className="space-y-3.5 sm:space-y-4">
                 <li>
                   <Link
                     href="/creators"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Become a Creator
                   </Link>
@@ -193,7 +193,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/affiliate"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Affiliate Program
                   </Link>
@@ -201,7 +201,7 @@ export function Footer() {
                 <li>
                   <Link
                     href="/contact"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Contact
                   </Link>
@@ -209,17 +209,17 @@ export function Footer() {
                 <li>
                   <Link
                     href="/help"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
                     Help
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/courses"
-                    className="text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+                    href="/about"
+                    className="text-xs sm:text-[13px] text-slate-600 hover:text-slate-950 transition-colors"
                   >
-                    More
+                    About
                   </Link>
                 </li>
               </ul>
@@ -227,11 +227,11 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright & Legal */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} ByteSpace. All rights reserved.</p>
+        {/* Bottom Bar: Divider Line + Copyright & Legal */}
+        <div className="border-t border-slate-200 mt-14 sm:mt-16 lg:mt-20 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <p>@ 2023 ByteSpace. All rights reserved.</p>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 sm:gap-8">
             <Link
               href="/privacy"
               className="hover:text-slate-800 transition-colors"
