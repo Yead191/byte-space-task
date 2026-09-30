@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export function CourseDetailsSkeleton() {
   return (
     <div className="relative w-full bg-white min-h-screen">
-      <div className="absolute top-0 left-0 right-0 h-130 sm:h-[580px] lg:h-[630px] xl:h-[650px] bg-brand-blue overflow-hidden pointer-events-none z-0">
+      <div className="absolute top-0 left-0 right-0 h-130 sm:h-145 lg:h-157.5 xl:h-162.5 bg-brand-blue overflow-hidden pointer-events-none z-0">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -39,7 +39,7 @@ export function CourseDetailsSkeleton() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           <div className="lg:col-span-8 flex flex-col">
             <div className="w-full mb-10 sm:mb-12">
-              <div className="w-full max-w-160 lg:max-w-165 xl:max-w-[700px] aspect-[1.55/1] max-h-[340px] sm:max-h-[380px] lg:max-h-[390px] xl:max-h-[420px] rounded-3xl sm:rounded-4xl overflow-hidden bg-white/15 backdrop-blur-xs border border-white/20 shadow-2xl flex items-center justify-center animate-pulse">
+              <div className="w-full max-w-160 lg:max-w-165 xl:max-w-175 aspect-[1.55/1] max-h-85 sm:max-h-95 lg:max-h-97.5 xl:max-h-105 rounded-3xl sm:rounded-4xl overflow-hidden bg-white/15 backdrop-blur-xs border border-white/20 shadow-2xl flex items-center justify-center animate-pulse">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/25 border border-white/30 shadow-lg" />
               </div>
             </div>
@@ -89,7 +89,7 @@ export function CourseDetailsSkeleton() {
           </div>
 
           <div className="lg:col-span-4 w-full z-20">
-            <div className="bg-white rounded-3xl sm:rounded-[32px] p-6 sm:p-7 xl:p-8 shadow-xl border border-slate-200/80 w-full flex flex-col">
+            <div className="bg-white rounded-3xl sm:rounded-4xl p-6 sm:p-7 xl:p-8 shadow-xl border border-slate-200/80 w-full flex flex-col">
               <Skeleton className="h-7 w-52 rounded-lg bg-slate-200 mb-5" />
 
               <div className="space-y-3.5 mb-4">
