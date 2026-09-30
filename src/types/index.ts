@@ -53,3 +53,72 @@ export interface User {
   email: string;
   avatar?: string;
 }
+
+export interface CourseLessonPreview {
+  id: string;
+  order: string;
+  title: string;
+  duration: string;
+}
+
+export interface CourseModuleItem {
+  id: string;
+  moduleNumber: number;
+  title: string;
+  description: string;
+}
+
+export interface CourseSneakPeekItem {
+  id: string;
+  title: string;
+  image: string;
+}
+
+export interface CourseReviewItem {
+  id: string;
+  author: string;
+  role: string;
+  avatar: string;
+  rating: number;
+  date: string;
+  content: string;
+}
+
+export interface CourseRatingDistributionItem {
+  stars: number;
+  count: number;
+  percentage: number;
+}
+
+export interface CourseDetail {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  instructor: string;
+  instructorRole: string;
+  instructorAvatar: string;
+  level: CourseLevel;
+  rating: number;
+  reviewCount: number;
+  studentsCount: string;
+  lessonsCount: number;
+  totalDuration: string;
+  price: number;
+  period: string;
+  videoUrl: string;
+  videoThumbnail?: string;
+  previewLessons: CourseLessonPreview[];
+  remainingVideosCount: number;
+  descriptionParagraphs: string[];
+  sneakPeeks: CourseSneakPeekItem[];
+  keyPoints: string[];
+  includedFeatures: string[];
+  modules: CourseModuleItem[];
+  progressPercentage: number;
+  ratingsSummary: {
+    average: number;
+    distribution: CourseRatingDistributionItem[];
+  };
+  reviews: CourseReviewItem[];
+}
