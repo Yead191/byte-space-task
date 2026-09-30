@@ -2,97 +2,123 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Lock, Mail, User } from "lucide-react";
+import Image from "next/image";
 
 export default function RegisterPage() {
-  const [name, setName] = useState("");
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Registration attempt:", { name, email, password });
   };
 
   return (
-    <Card className="border-slate-200/80 shadow-xl rounded-2xl overflow-hidden bg-white">
-      <CardHeader className="text-center pb-2 pt-8">
-        <CardTitle className="text-2xl font-black text-slate-900">
-          Create an account
-        </CardTitle>
-        <CardDescription className="text-slate-500 text-xs sm:text-sm">
-          Join thousands of learners on ByteSpace today
-        </CardDescription>
-      </CardHeader>
+    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      {/* Left Column: Heading, Subtitle & 3D Cards Illustration */}
+      <div className="lg:col-span-6 flex flex-col items-start">
+        <h1 className="font-heading font-bold text-white text-2xl sm:text-3xl lg:text-[34px] leading-tight mb-3">
+          Sign up and come in
+        </h1>
 
-      <CardContent className="pt-6">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-700">Full Name</label>
-            <div className="relative">
-              <User className="w-4 h-4 absolute left-3.5 top-3.5 text-slate-400" />
-              <Input
+        <p className="text-white/85 text-xs sm:text-sm font-normal leading-relaxed max-w-md mb-6 sm:mb-8">
+          The registration process is straightforward, uncomplicated, and
+          efficient, allowing users to sign up quickly, easily, and at no cost
+        </p>
+
+        <div className="relative w-full max-w-[420px] sm:max-w-[460px] lg:max-w-[480px]">
+          <Image
+            src="/assets/auth/auth.png"
+            alt="ByteSpace Learning Platform"
+            width={1655}
+            height={1757}
+            priority
+            className="w-full h-auto object-contain drop-shadow-2xl select-none pointer-events-none"
+          />
+        </div>
+      </div>
+
+      {/* Right Column: White Floating Auth Card */}
+      <div className="lg:col-span-6 flex justify-center lg:justify-end">
+        <div className="bg-white rounded-[32px] sm:rounded-[36px] p-8 sm:p-10 lg:p-12 shadow-2xl w-full max-w-[480px]">
+          <span className="text-brand-blue font-medium text-xs sm:text-sm block mb-1">
+            Create an Account
+          </span>
+
+          <h2 className="font-heading font-bold text-slate-900 text-3xl sm:text-[36px] tracking-tight leading-tight mb-8">
+            Welcome to <br />
+            ByteSpace
+          </h2>
+
+          <form onSubmit={handleSubmit}>
+            {/* Full Name Field */}
+            <div className="space-y-1.5 mb-5">
+              <label className="text-xs sm:text-[13px] font-medium text-slate-700 block">
+                Full Name
+              </label>
+              <input
                 type="text"
-                placeholder="John Doe"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="pl-10"
+                placeholder="Jamie Davis"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
                 required
+                className="w-full bg-white border border-slate-200 text-slate-800 placeholder:text-slate-400 text-xs sm:text-sm rounded-xl sm:rounded-2xl px-4 py-3 sm:py-3.5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
               />
             </div>
-          </div>
 
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-700">Email Address</label>
-            <div className="relative">
-              <Mail className="w-4 h-4 absolute left-3.5 top-3.5 text-slate-400" />
-              <Input
+            {/* Email Field */}
+            <div className="space-y-1.5 mb-5">
+              <label className="text-xs sm:text-[13px] font-medium text-slate-700 block">
+                Email
+              </label>
+              <input
                 type="email"
-                placeholder="name@example.com"
+                placeholder="designer@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="pl-10"
                 required
+                className="w-full bg-white border border-slate-200 text-slate-800 placeholder:text-slate-400 text-xs sm:text-sm rounded-xl sm:rounded-2xl px-4 py-3 sm:py-3.5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
               />
             </div>
-          </div>
 
-          <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-700">Password</label>
-            <div className="relative">
-              <Lock className="w-4 h-4 absolute left-3.5 top-3.5 text-slate-400" />
-              <Input
+            {/* Password Field */}
+            <div className="space-y-1.5 mb-6">
+              <label className="text-xs sm:text-[13px] font-medium text-slate-700 block">
+                Password
+              </label>
+              <input
                 type="password"
-                placeholder="••••••••"
+                placeholder="********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="pl-10"
                 required
+                className="w-full bg-white border border-slate-200 text-slate-800 placeholder:text-slate-400 text-xs sm:text-sm rounded-xl sm:rounded-2xl px-4 py-3 sm:py-3.5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
               />
             </div>
-          </div>
 
-          <Button
-            type="submit"
-            variant="default"
-            className="w-full h-11 font-bold mt-2 rounded-xl text-sm bg-brand-lime text-slate-950 hover:bg-[#c3ea15]"
-          >
-            Create Account <ArrowRight className="w-4 h-4 ml-1" />
-          </Button>
-        </form>
-      </CardContent>
+            {/* Submit Button (Right-aligned pill) */}
+            <div className="flex justify-end mb-8 sm:mb-12">
+              <button
+                type="submit"
+                className="bg-brand-lime text-slate-950 font-semibold hover:bg-[#c6ec1a] active:scale-95 rounded-full px-8 py-2.5 sm:py-3 text-xs sm:text-sm transition-all shadow-xs cursor-pointer inline-flex items-center justify-center"
+              >
+                Continue
+              </button>
+            </div>
+          </form>
 
-      <CardFooter className="flex justify-center border-t border-slate-100 py-4 bg-slate-50/50">
-        <p className="text-xs text-slate-500 font-medium">
-          Already have an account?{" "}
-          <Link href="/login" className="font-bold text-secondary hover:underline">
-            Sign in
-          </Link>
-        </p>
-      </CardFooter>
-    </Card>
+          {/* Switch to Login */}
+          <p className="text-center text-xs sm:text-[13px] text-slate-500 mt-4 sm:mt-6">
+            Already have an account?{" "}
+            <Link
+              href="/login"
+              className="text-brand-blue hover:underline font-medium"
+            >
+              Login
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
