@@ -3,14 +3,80 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { toast } from "@/components/ui/sonner";
+import { Loader2 } from "lucide-react";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!fullName.trim() || !email.trim() || !password.trim()) {
+      toast.error("Missing information", {
+        description: "Please complete all fields to create your account.",
+      });
+      return;
+    }
+
+    if (fullName.trim().length < 2) {
+      toast.error("Invalid name", {
+        description: "Please enter your full name (at least 2 characters).",
+      });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Invalid email format", {
+        description: "Please provide a valid email address (e.g. name@example.com).",
+      });
+      return;
+    }
+
+    if (password.length < 6) {
+      toast.error("Weak password", {
+        description: "Password must be at least 6 characters long.",
+      });
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // Simulate registration request
+      await new Promise((resolve) => setTimeout(resolve, 800));
+
+      if (typeof window !== "undefined") {
+        localStorage.setItem(
+          "bytespace_user",
+          JSON.stringify({
+            name: fullName.trim(),
+            email,
+            avatar: "/assets/creator/creator-dp.png",
+            registeredAt: new Date().toISOString(),
+          })
+        );
+      }
+
+      toast.success("Account created successfully!", {
+        description: `Welcome to ByteSpace, ${fullName.trim()}! Redirecting to courses...`,
+      });
+
+      setTimeout(() => {
+        router.push("/courses");
+      }, 1000);
+    } catch {
+      toast.error("Registration failed", {
+        description: "Something went wrong. Please try again.",
+      });
+      setLoading(false);
+    }
   };
 
   return (
@@ -61,8 +127,9 @@ export default function RegisterPage() {
                 placeholder="Jamie Davis"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
+                disabled={loading}
                 required
-                className="w-full bg-white border border-slate-200 text-slate-800 placeholder:text-slate-400 text-xs sm:text-sm rounded-xl sm:rounded-2xl px-4 py-3 sm:py-3.5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
+                className="w-full bg-white border border-slate-200 text-slate-800 placeholder:text-slate-400 text-xs sm:text-sm rounded-xl sm:rounded-2xl px-4 py-3 sm:py-3.5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all disabled:opacity-60"
               />
             </div>
 
@@ -76,8 +143,9 @@ export default function RegisterPage() {
                 placeholder="designer@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                disabled={loading}
                 required
-                className="w-full bg-white border border-slate-200 text-slate-800 placeholder:text-slate-400 text-xs sm:text-sm rounded-xl sm:rounded-2xl px-4 py-3 sm:py-3.5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
+                className="w-full bg-white border border-slate-200 text-slate-800 placeholder:text-slate-400 text-xs sm:text-sm rounded-xl sm:rounded-2xl px-4 py-3 sm:py-3.5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all disabled:opacity-60"
               />
             </div>
 
@@ -91,8 +159,9 @@ export default function RegisterPage() {
                 placeholder="********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                disabled={loading}
                 required
-                className="w-full bg-white border border-slate-200 text-slate-800 placeholder:text-slate-400 text-xs sm:text-sm rounded-xl sm:rounded-2xl px-4 py-3 sm:py-3.5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
+                className="w-full bg-white border border-slate-200 text-slate-800 placeholder:text-slate-400 text-xs sm:text-sm rounded-xl sm:rounded-2xl px-4 py-3 sm:py-3.5 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all disabled:opacity-60"
               />
             </div>
 
@@ -100,9 +169,17 @@ export default function RegisterPage() {
             <div className="flex justify-end mb-8 sm:mb-12">
               <button
                 type="submit"
-                className="bg-brand-lime text-slate-950 font-semibold hover:bg-[#c6ec1a] active:scale-95 rounded-full px-8 py-2.5 sm:py-3 text-xs sm:text-sm transition-all shadow-xs cursor-pointer inline-flex items-center justify-center"
+                disabled={loading}
+                className="bg-brand-lime text-slate-950 font-semibold hover:bg-[#c6ec1a] active:scale-95 rounded-full px-8 py-2.5 sm:py-3 text-xs sm:text-sm transition-all shadow-xs cursor-pointer inline-flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
               >
-                Continue
+                {loading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Creating Account...</span>
+                  </>
+                ) : (
+                  <span>Continue</span>
+                )}
               </button>
             </div>
           </form>
