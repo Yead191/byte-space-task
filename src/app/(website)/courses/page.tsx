@@ -64,7 +64,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
       </Suspense>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         {/* Filters Bar & Category Pills */}
         <Suspense fallback={<FilterBarSkeleton />}>
           <CoursesFilterBar

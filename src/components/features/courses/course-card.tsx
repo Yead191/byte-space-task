@@ -38,23 +38,19 @@ export function CourseCard({ course, priority = false }: CourseCardProps) {
           priority={priority}
         />
 
-        {/* 3 Floating Pill Badges */}
-        <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center justify-between gap-1.5 sm:gap-2">
-          <div className="bg-white/50 backdrop-blur-md text-[#3F3F46] text-[11px] sm:text-xs font-medium px-3 sm:px-3.5 py-1.5 rounded-full shadow-xs whitespace-nowrap">
+        <div className="absolute bottom-2.5 sm:bottom-3 left-2 sm:left-2.5 right-2 sm:right-2.5 z-10 flex items-center justify-between gap-1 sm:gap-1.5">
+          <div className="bg-white/60 backdrop-blur-md text-[#3F3F46] text-[10px] sm:text-[11px] font-medium px-2 sm:px-2.5 py-1 rounded-full shadow-xs whitespace-nowrap text-center">
             {course.lessonsCount} Lessons
           </div>
-          <div className="bg-white/50 backdrop-blur-md text-[#3F3F46] text-[11px] sm:text-xs font-medium px-3 sm:px-3.5 py-1.5 rounded-full shadow-xs whitespace-nowrap">
+          <div className="bg-white/60 backdrop-blur-md text-[#3F3F46] text-[10px] sm:text-[11px] font-medium px-2 sm:px-2.5 py-1 rounded-full shadow-xs whitespace-nowrap text-center">
             {course.duration}
           </div>
-          <div className="bg-white/50 backdrop-blur-md text-[#3F3F46] text-[11px] sm:text-xs font-medium px-3 sm:px-3.5 py-1.5 rounded-full shadow-xs whitespace-nowrap">
+          <div className="bg-white/60 backdrop-blur-md text-[#3F3F46] text-[10px] sm:text-[11px] font-medium px-2 sm:px-2.5 py-1 rounded-full shadow-xs whitespace-nowrap text-center">
             {course.commentsCount} Comments
           </div>
         </div>
       </div>
-
-      {/* Card Body */}
       <div className="pt-4 px-1 pb-1 flex flex-col flex-1 justify-between">
-        {/* Title, Rating & Instructor */}
         <div>
           <div className="flex items-center justify-between gap-2">
             <h3
@@ -78,9 +74,7 @@ export function CourseCard({ course, priority = false }: CourseCardProps) {
           </p>
         </div>
 
-        {/* Level & Enrolled Student Avatars */}
         <div className="mt-4 sm:mt-5 flex items-center justify-start gap-2">
-          {/* Level Pill with 3-bar indicator */}
           <span className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#F4F4F5] text-[#3F3F46] text-xs sm:text-[13px] font-medium">
             <svg
               className="w-3.5 h-3.5 text-[#3F3F46] shrink-0"
@@ -94,7 +88,6 @@ export function CourseCard({ course, priority = false }: CourseCardProps) {
             {course.level}
           </span>
 
-          {/* Overlapping Avatars + Lime Count Badge */}
           <div className="flex items-center -space-x-2">
             {avatars.map((avatar, idx) => (
               <div
@@ -116,7 +109,6 @@ export function CourseCard({ course, priority = false }: CourseCardProps) {
           </div>
         </div>
 
-        {/* Price & Duration */}
         <div className="mt-4 sm:mt-5 flex items-baseline">
           <span className="text-[#0B44C4] font-extrabold text-2xl tracking-tight leading-none">
             ${course.price}

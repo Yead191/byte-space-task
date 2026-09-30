@@ -44,7 +44,7 @@ export function CourseDetailsView({
 
         <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-137.5 h-137.5 bg-white/5 rounded-full blur-3xl pointer-events-none z-0" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6 sm:mb-7 lg:mb-8">
             <div className="space-y-2 lg:space-y-2.5 max-w-4xl min-w-0">
               <h1 className="font-heading font-semibold text-white text-xl sm:text-2xl lg:text-[32px] xl:text-[36px] tracking-tight leading-tight whitespace-normal lg:whitespace-nowrap">
@@ -107,7 +107,7 @@ export function CourseDetailsView({
       </section>
 
       <section className="relative z-10 w-full bg-white pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-start">
             <div className="lg:col-span-7 xl:col-span-8 w-full">
               <div className="mb-6 sm:mb-8">

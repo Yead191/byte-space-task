@@ -22,7 +22,7 @@ export function Footer() {
 
   return (
     <footer className="w-full bg-white text-slate-700 pt-16 pb-12 border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-slate-100">
           {/* Left Column: Brand & Newsletter */}
           <div className="lg:col-span-5 flex flex-col justify-between">

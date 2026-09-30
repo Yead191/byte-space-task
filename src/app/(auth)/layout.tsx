@@ -15,7 +15,7 @@ export default function AuthLayout({
       <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-brand-lime/10 blur-3xl pointer-events-none" />
 
       {/* Auth Top Header */}
-      <header className="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between z-10">
+      <header className="w-full max-w-6xl mx-auto px-6 py-6 flex items-center justify-between z-10">
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 rounded-xl bg-brand-blue p-1.5 flex items-center justify-center shadow-md">
             <Image

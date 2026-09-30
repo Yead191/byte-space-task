@@ -12,7 +12,7 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
   const avatarSrc = course.instructorAvatar || "/assets/course/Ellipse.png";
 
   return (
-    <div className="bg-white rounded-3xl sm:rounded-[32px] p-6 sm:p-7 xl:p-8 shadow-xl border border-slate-100 flex flex-col gap-4 sm:gap-5 w-full">
+    <div className="bg-white rounded-3xl sm:rounded-4xl p-6 sm:p-7 xl:p-8 shadow-xl border border-slate-100 flex flex-col gap-4 sm:gap-5 w-full">
       <div>
         <h3 className="font-heading font-semibold text-slate-900 text-base sm:text-lg 2xl:text-xl">
           {course.lessonsCount} Lessons ({course.totalDuration})
@@ -113,7 +113,7 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
         </p>
 
         <Link
-          href="#profile"
+          href="/creator-profile"
           className="inline-flex items-center justify-center border border-slate-300 text-slate-800 hover:bg-slate-50 active:scale-95 text-xs font-semibold py-2 px-5 rounded-full transition-all duration-200 w-fit cursor-pointer"
         >
           See Full Profile

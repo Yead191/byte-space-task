@@ -19,7 +19,7 @@ export function HeroSection() {
 
       <HeroShapes />
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center xl:flex-1 xl:flex xl:flex-col xl:justify-between w-full">
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center xl:flex-1 xl:flex xl:flex-col xl:justify-between w-full">
         <div>
           <div className="max-w-4xl mx-auto animate-fade-in-up">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-5xl 2xl:text-[72px] text-white tracking-tight leading-[1.12] mb-3 sm:mb-5 xl:mb-3 font-semibold">

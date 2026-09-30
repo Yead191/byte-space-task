@@ -18,7 +18,7 @@ export function CourseDetailsSkeleton() {
         <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-137.5 h-137.5 bg-white/5 rounded-full blur-3xl pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-34 xl:pt-36 pb-20 sm:pb-28">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 lg:pt-28 xl:pt-32 pb-20 sm:pb-28">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6 sm:mb-7 lg:mb-8">
           <div className="space-y-3 max-w-3xl w-full">
             <Skeleton className="h-9 sm:h-10 w-4/5 max-w-xl rounded-xl bg-white/25" />

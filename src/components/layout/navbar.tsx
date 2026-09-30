@@ -28,7 +28,7 @@ export function Navbar() {
           : "bg-transparent py-5 sm:py-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Logo - Just the logo image itself, no extra text or bg container */}
           <Link
