@@ -75,7 +75,7 @@ export function LearningPathsSection() {
     <section className="w-full bg-white py-12 sm:py-16 ">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <h2 className="font-heading font-bold text-slate-950 text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] tracking-tight leading-tight">
+          <h2 className="font-heading font-semibold text-slate-950 text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] tracking-tight leading-tight">
             Explore Diverse Learning Paths at Bytespace
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed mt-3 sm:mt-4">

@@ -3,6 +3,7 @@ import { TrustedLogos } from "@/components/features/home/trusted-logos";
 import { FeaturedCoursesSection } from "@/components/features/home/featured-courses-section";
 import { LearningPathsSection } from "@/components/features/home/learning-paths-section";
 import { GrowthShowcaseSection } from "@/components/features/home/growth-showcase-section";
+import { TestimonialSection } from "@/components/features/home/testimonial-section";
 import { CreatorCtaSection } from "@/components/features/home/creator-cta-section";
 import { getCourses } from "@/data/courses";
 
@@ -17,6 +18,7 @@ export default async function HomePage() {
       <LearningPathsSection />
       <GrowthShowcaseSection />
       <CreatorCtaSection />
+      <TestimonialSection />
     </div>
   );
 }

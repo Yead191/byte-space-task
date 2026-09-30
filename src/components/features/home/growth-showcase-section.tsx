@@ -5,8 +5,6 @@ import { Check } from "lucide-react";
 export function GrowthShowcaseSection() {
   return (
     <section className="relative w-full bg-white py-8 sm:py-10 lg:py-12 overflow-hidden">
-      {/* 4 Corner Ambient Gradients */}
-      {/* Top-Left: Circular Soft Lime Gradient */}
       <div
         className="absolute -top-28 -left-28 w-80 sm:w-115 h-80 sm:h-115 rounded-full blur-[80px] sm:blur-[110px] pointer-events-none z-0"
         style={{
@@ -15,20 +13,16 @@ export function GrowthShowcaseSection() {
         }}
       />
 
-      {/* Top-Right: Warm Light Yellow */}
       <div className="absolute -top-20 -right-20 w-72 sm:w-110 h-72 sm:h-110 bg-[#FEF9C3]/70 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none z-0" />
 
-      {/* Bottom-Left: Vibrant Lime Green */}
       <div className="absolute -bottom-20 -left-20 w-72 sm:w-110 h-72 sm:h-110 bg-[#CCFF00]/30 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none z-0" />
 
-      {/* Bottom-Right: Soft Sky / Lavender Blue */}
       <div className="absolute -bottom-20 -right-20 w-72 sm:w-110 h-72 sm:h-110 bg-[#C7D2FE]/60 rounded-full blur-[90px] sm:blur-[130px] pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8 lg:space-y-10">
-        {/* ROW 1: Text Left, Boy Image Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           <div className="lg:col-span-6 space-y-3 sm:space-y-4">
-            <h2 className="font-heading font-bold text-slate-950 text-2xl sm:text-3xl lg:text-[40px] leading-[1.18] tracking-tight">
+            <h2 className="font-heading font-semibold text-slate-950 text-2xl sm:text-3xl lg:text-[40px] leading-[1.18] tracking-tight">
               Your Path to Professional Growth Starts Here!
             </h2>
 
@@ -99,12 +93,14 @@ export function GrowthShowcaseSection() {
           </div>
 
           <div className="lg:col-span-6 order-1 lg:order-2 space-y-3 sm:space-y-4">
-            <h2 className="font-heading font-bold text-slate-950 text-2xl sm:text-3xl lg:text-[40px] leading-[1.18] tracking-tight">
+            <h2 className="font-heading font-semibold text-slate-950 text-2xl sm:text-3xl lg:text-[40px] leading-[1.18] tracking-tight">
               Create &amp; Manage Courses Easily.
             </h2>
 
             <p className="text-xs sm:text-sm text-slate-500 font-normal leading-relaxed max-w-lg">
-              <strong className="font-semibold text-slate-900">ByteSpace</strong>{" "}
+              <strong className="font-semibold text-slate-900">
+                ByteSpace
+              </strong>{" "}
               supports individuals or entities in the creation, publication, and
               administration of educational courses.
             </p>

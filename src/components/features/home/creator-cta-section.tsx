@@ -97,7 +97,7 @@ export function CreatorCtaSection() {
 
       {/* Center Content */}
       <div className="relative z-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        <h2 className="font-heading font-bold text-white text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] tracking-tight leading-[1.18]">
+        <h2 className="font-heading font-semibold text-white text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] tracking-tight leading-[1.18]">
           Unlock Your Potential as a <br className="hidden sm:inline" />
           Creator with ByteSpace
         </h2>
