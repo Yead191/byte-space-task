@@ -9,7 +9,7 @@ interface CreatorProfileViewProps {
 
 export function CreatorProfileView({ creator }: CreatorProfileViewProps) {
   return (
-    <div className="relative w-full bg-white">
+    <div className="relative w-full bg-white overflow-x-hidden">
       <CreatorHero creator={creator} />
       <CreatorCoursesSection courses={creator.courses} />
     </div>

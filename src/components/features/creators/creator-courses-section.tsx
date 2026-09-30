@@ -19,7 +19,7 @@ export function CreatorCoursesSection({ courses }: CreatorCoursesSectionProps) {
   });
 
   return (
-    <section className="relative z-10 w-full bg-white pt-8 sm:pt-10 pb-16 sm:pb-24">
+    <section className="relative z-10 w-full bg-white pt-8 sm:pt-10 pb-16 sm:pb-24 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 pb-1">
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
