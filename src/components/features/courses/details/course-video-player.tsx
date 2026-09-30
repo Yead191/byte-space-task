@@ -32,7 +32,7 @@ export function CourseVideoPlayer({
     <div
       className={cn(
         "relative w-full rounded-3xl sm:rounded-4xl overflow-hidden bg-slate-900 border border-white/20 shadow-2xl group flex items-center justify-center",
-        className || "aspect-16/10 sm:aspect-16/9"
+        className || "aspect-16/10 sm:aspect-video",
       )}
     >
       <video

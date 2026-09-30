@@ -131,7 +131,7 @@ export function Navbar() {
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out border-white/10 bg-brand-blue/95 backdrop-blur-xl ${
           mobileMenuOpen
-            ? "max-h-[420px] opacity-100 border-t mt-3 pt-3 pb-6 shadow-xl"
+            ? "max-h-105 opacity-100 border-t mt-3 pt-3 pb-6 shadow-xl"
             : "max-h-0 opacity-0 border-t-0 mt-0 pt-0 pb-0 pointer-events-none"
         }`}
       >
